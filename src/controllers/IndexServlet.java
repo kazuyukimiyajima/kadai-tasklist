@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import java.util.List;
 
-import models.Message;
+import models.Task;
 import utils.DBUtil;
 
 @WebServlet("/index")
@@ -34,7 +34,7 @@ public class IndexServlet extends HttpServlet {
 
 	    EntityManager em = DBUtil.createEntityManager();
 
-        List<Message> messages = em.createNamedQuery("getAllMessages", Message.class)
+        List<Task> messages = em.createNamedQuery("getAllMessages", Task.class)
                                    .getResultList();
         response.getWriter().append(Integer.valueOf(messages.size()).toString());
 
